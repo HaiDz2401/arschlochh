@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+:root {
+	--ink: #20211d;
+	--paper: #f1efe9;
+	--orange: #dd5b36;
+	--line: rgba(32, 33, 29, .18);
+	--serif: 'Playfair Display', Georgia, serif;
+	--sans: 'Space Grotesk', sans-serif;
+	--mono: 'DM Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: var(--ink); background: var(--paper); font-family: var(--sans); }
+a { color: inherit; text-decoration: none; }
+button { color: inherit; font: inherit; }
+
+.site-header { align-items: center; display: flex; justify-content: space-between; padding: 28px 5vw; }
+.wordmark { font-size: 1.5rem; font-weight: 600; letter-spacing: -.08em; }
+.wordmark span, em { color: var(--orange); }
+.main-nav { display: flex; gap: 32px; margin-left: 8vw; }
+.main-nav a, .header-contact, .text-link { font-size: .78rem; font-weight: 500; letter-spacing: .02em; }
+.main-nav a:hover, .header-contact:hover, .social-links a:hover { color: var(--orange); }
+.header-contact span, .text-link span, .footer-email span { color: var(--orange); font-size: 1.1em; margin-left: 5px; }
+
+.hero { display: grid; grid-template-columns: minmax(280px, .8fr) minmax(420px, 1.2fr); gap: 7vw; min-height: calc(100vh - 82px); padding: 7vh 10vw 10vh 15vw; }
+.hero-copy { align-self: center; padding-bottom: 5vh; }
+.eyebrow { font-family: var(--mono); font-size: .62rem; letter-spacing: .1em; margin: 0 0 23px; text-transform: uppercase; }
+h1, h2 { font-family: var(--serif); font-weight: 500; letter-spacing: -.06em; line-height: .91; margin: 0; }
+h1 { font-size: clamp(4rem, 8vw, 8.5rem); }
+.hero-intro { font-size: .98rem; line-height: 1.6; margin: 34px 0 37px; max-width: 320px; }
+.text-link { border-bottom: 1px solid var(--ink); display: inline-block; padding-bottom: 7px; }
+.text-link:hover { border-color: var(--orange); color: var(--orange); }
+.hero-image { margin: 0; position: relative; }
+.hero-image img { display: block; height: min(76vh, 760px); object-fit: cover; object-position: center; width: 100%; }
+.hero-image figcaption { display: flex; font-family: var(--mono); font-size: .6rem; justify-content: space-between; margin-top: 12px; text-transform: uppercase; }
+.hero-image figcaption span { color: var(--orange); }
+
+.work-section { background: #e8e5dc; padding: 11vw 8vw 12vw; }
+.section-heading { align-items: end; display: flex; justify-content: space-between; margin: 0 auto 70px; max-width: 1120px; }
+h2 { font-size: clamp(3rem, 6vw, 6.6rem); }
+.section-note { font-family: var(--mono); font-size: .62rem; line-height: 1.65; margin: 0 0 4px; text-transform: uppercase; }
+.album-list { display: grid; gap: 10vw; margin: auto; max-width: 1120px; }
+.album--proposal { order: 4; }
+.album--beauty-one { order: 5; }
+.album--beauty-two { order: 6; }
+.album--wedding { order: 7; }
+.album--yearbook-women { order: 8; }
+.album--yearbook-men { order: 9; }
+.album { border-top: 1px solid var(--line); padding-top: 26px; }
+.album-heading { align-items: end; display: flex; justify-content: space-between; margin-bottom: 28px; }
+.album-number { color: var(--orange); font-family: var(--mono); font-size: .62rem; letter-spacing: .08em; margin: 0 0 12px; text-transform: uppercase; }
+.album h3 { font-family: var(--serif); font-size: clamp(2.6rem, 5vw, 5rem); font-weight: 500; letter-spacing: -.06em; line-height: .9; margin: 0; }
+.album-description { font-family: var(--mono); font-size: .62rem; line-height: 1.65; margin: 0 0 4px; text-align: right; text-transform: uppercase; }
+.filter-button { background: none; border: 0; cursor: pointer; font-size: .75rem; padding: 0 0 14px; position: relative; }
+.filter-button::after { background: var(--orange); bottom: -1px; content: ''; height: 2px; left: 0; position: absolute; transform: scaleX(0); transform-origin: left; transition: transform .25s; width: 100%; }
+.filter-button.is-active::after, .filter-button:hover::after { transform: scaleX(1); }
+.gallery { display: grid; gap: 22px; grid-auto-flow: dense; grid-auto-rows: 220px; grid-template-columns: repeat(12, 1fr); margin: auto; max-width: 1120px; }
+.photo-card { background: #c7d2d0; border: 0; cursor: pointer; grid-column: span 4; overflow: hidden; padding: 0; position: relative; text-align: left; }
+.photo-card--tall { grid-row: span 2; }
+.photo-card--wide { grid-column: span 8; }
+.photo-card img { display: block; height: 100%; object-fit: cover; transition: transform .6s ease, filter .6s ease; width: 100%; }
+.photo-card--tall img { object-position: 67% center; }
+.photo-card--wide img { object-position: 65% center; }
+.photo-card::after { background: linear-gradient(180deg, transparent 45%, rgba(20, 21, 18, .7) 100%); content: ''; inset: 0; pointer-events: none; position: absolute; }
+.photo-card:hover img, .photo-card:focus-visible img { filter: saturate(.8) brightness(.78); transform: scale(1.04); }
+.photo-label { bottom: 20px; color: white; display: flex; flex-direction: column; left: 20px; position: absolute; transform: translateY(0); z-index: 1; }
+.photo-label strong { font-family: var(--serif); font-size: 1.3rem; font-weight: 500; }
+.photo-label small { font-family: var(--mono); font-size: .55rem; margin-top: 6px; text-transform: uppercase; }
+.photo-card.is-hidden { display: none; }
+.album--street .gallery { background: rgba(32, 33, 29, .04); height: clamp(390px, 48vw, 590px); position: relative; }
+.album--street .photo-card { aspect-ratio: auto; background: transparent; height: auto; left: 50%; position: absolute; top: 0; transform: translateX(-50%); width: min(38%, 360px); }
+.album--street .photo-card img { background: transparent; height: auto; object-fit: fill; transition: transform .6s ease; width: 100%; }
+.album--street .photo-card:nth-child(1) { transform: translateX(calc(-50% + 30px)) translateY(54px); z-index: 1; }
+.album--street .photo-card:nth-child(2) { transform: translateX(calc(-50% + 10px)) translateY(36px); z-index: 2; }
+.album--street .photo-card:nth-child(3) { transform: translateX(calc(-50% - 10px)) translateY(18px); z-index: 3; }
+.album--street .photo-card:nth-child(4) { transform: translateX(calc(-50% - 30px)); z-index: 4; }
+.album--street .photo-card:hover, .album--street .photo-card:focus-visible, .album--street .photo-card.is-selected { z-index: 5; }
+.album--street .gallery.is-expanded { align-items: start; display: grid; gap: 22px; grid-auto-rows: auto; grid-template-columns: repeat(4, minmax(0, 1fr)); height: auto; }
+.album--street .gallery.is-expanded .photo-card { aspect-ratio: auto; grid-column: auto; left: auto; position: relative; top: auto; transform: none !important; width: 100%; }
+.album--street .gallery.is-expanded .photo-card img { height: auto; }
+.album--street .gallery.is-expanded .photo-card:hover, .album--street .gallery.is-expanded .photo-card:focus-visible { transform: scale(1.02) !important; z-index: 2; }
+.album--ao-dai .gallery { align-items: start; display: grid; gap: 22px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
+.album--ao-dai .photo-card { grid-column: auto; height: auto; position: relative; transform: none; z-index: auto; }
+.album--ao-dai .photo-card img { height: auto; object-fit: contain; width: 100%; }
+.album--proposal .gallery { align-items: start; display: grid; gap: 22px; grid-template-columns: repeat(5, minmax(0, 1fr)); }
+.album--proposal .photo-card { grid-column: auto; height: auto; position: relative; transform: none; z-index: auto; }
+.album--proposal .photo-card img { height: auto; object-fit: contain; width: 100%; }
+.album--yearbook-women .gallery, .album--yearbook-men .gallery { align-items: start; display: flex; gap: 22px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: thin; }
+.album--yearbook-women .photo-card, .album--yearbook-men .photo-card { flex: 0 0 clamp(220px, 26vw, 340px); height: auto; position: relative; transform: none; z-index: auto; }
+.album--yearbook-women .photo-card img, .album--yearbook-men .photo-card img { display: block; height: auto !important; object-fit: fill; width: 100%; }
+.beauty-gallery { align-items: start; display: flex; gap: 8px; overflow-x: auto; padding-bottom: 8px; scrollbar-width: thin; }
+.beauty-gallery .photo-card { flex: 0 0 clamp(220px, 26vw, 340px); height: auto; position: relative; transform: none; z-index: auto; }
+.beauty-gallery .photo-card img { display: block; height: auto !important; object-fit: fill; width: 100%; }
+.empty-album-note { color: rgba(32, 33, 29, .58); font-family: var(--mono); font-size: .62rem; letter-spacing: .04em; margin: 0; padding: 26px 0; text-transform: uppercase; }
+.wedding-layout { align-items: start; display: grid; gap: 22px; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
+.wedding-vertical, .wedding-horizontal { display: grid; gap: 22px; }
+.wedding-vertical { align-content: start; }
+.wedding-horizontal { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.wedding-layout .photo-card { background: transparent; height: auto; min-height: 0; position: relative; transform: none; z-index: auto; }
+.wedding-layout .photo-card img { background: transparent; display: block; height: auto !important; object-fit: fill; width: 100%; }
+.photo-alt { background: var(--ink); bottom: 18px; color: var(--paper); display: block; font-family: var(--mono); font-size: .62rem; left: 18px; max-width: calc(100% - 36px); opacity: 0; padding: 8px 10px; position: absolute; text-transform: uppercase; transform: translateY(8px); transition: opacity .25s, transform .25s; z-index: 2; }
+.photo-card:hover .photo-alt, .photo-card:focus-visible .photo-alt, .photo-card.is-selected .photo-alt { opacity: 1; transform: translateY(0); }
+
+.about-section { background: #d9e0d2; padding: 10vw 15vw; }
+.about-grid { display: grid; gap: 12vw; grid-template-columns: 1.2fr .8fr; }
+.about-copy { align-self: end; max-width: 330px; }
+.about-copy p { font-size: 1.05rem; line-height: 1.65; margin: 0 0 35px; }
+.site-footer { background: var(--ink); color: var(--paper); padding: 8vw 8vw 28px; }
+.footer-email { display: inline-block; font-family: var(--serif); font-size: clamp(2.5rem, 6vw, 6rem); letter-spacing: -.05em; line-height: 1; margin-bottom: 12vw; }
+.footer-bottom { border-top: 1px solid rgba(241, 239, 233, .3); display: flex; font-family: var(--mono); font-size: .58rem; justify-content: space-between; padding-top: 18px; text-transform: uppercase; }
+.social-links { display: flex; gap: 25px; }
+
+.lightbox { align-items: center; background: #141512; color: var(--paper); display: flex; inset: 0; justify-content: center; padding: 6vh 10vw; position: fixed; z-index: 100; }
+.lightbox[hidden] { display: none; }
+.lightbox-figure { margin: 0; max-height: 90vh; max-width: min(900px, 78vw); }
+.lightbox-figure img { display: block; max-height: 88vh; max-width: 88vw; object-fit: contain; }
+.lightbox-figure figcaption { display: none; }
+.lightbox-figure figcaption strong { font-family: var(--serif); font-size: 1.2rem; font-weight: 500; text-transform: none; }
+.lightbox-alt { color: var(--orange); display: block; margin-left: auto; max-width: 45%; text-align: right; }
+.lightbox-close, .lightbox-arrow { background: none; border: 0; cursor: pointer; position: absolute; }
+.lightbox-close { font-size: 2.2rem; right: 35px; top: 25px; }
+.lightbox-arrow { font-size: 2rem; padding: 20px; top: 48%; }
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+.lightbox-close:hover, .lightbox-arrow:hover { color: var(--orange); }
+
+@media (max-width: 720px) {
+	.site-header { padding: 22px 6vw; }
+	.main-nav { gap: 16px; margin-left: auto; margin-right: 20px; }
+	.header-contact { display: none; }
+	.hero { display: flex; flex-direction: column; gap: 35px; min-height: auto; padding: 8vh 6vw 15vh; }
+	.hero-copy { padding: 0; }
+	h1 { font-size: clamp(4.2rem, 20vw, 7rem); }
+	.hero-image img { height: 65vh; }
+	.section-heading { align-items: start; flex-direction: column; gap: 30px; margin-bottom: 45px; }
+	.work-section { padding: 18vw 6vw; }
+	.album-list { gap: 22vw; }
+	.album-heading { align-items: start; flex-direction: column; gap: 22px; }
+	.album-description { text-align: left; }
+	.gallery { gap: 14px; grid-auto-rows: 190px; grid-template-columns: repeat(2, 1fr); }
+	.photo-card, .photo-card--wide { grid-column: span 1; }
+	.photo-card--tall { grid-row: span 2; }
+	.photo-card img, .photo-card--wide img { height: 100%; }
+	.photo-card--tall img { height: 100%; }
+	.photo-label { bottom: 12px; left: 12px; }
+	.photo-label strong { font-size: 1rem; }
+	.album--street .gallery { height: 390px; }
+	.album--street .photo-card { width: 68%; }
+	.album--street .gallery.is-expanded { display: flex; gap: 14px; height: auto; overflow-x: auto; padding-bottom: 8px; }
+	.album--street .gallery.is-expanded .photo-card { flex: 0 0 72%; width: auto; }
+	.album--street .gallery.is-expanded .photo-card img { height: auto; width: 100%; }
+	.album--ao-dai .gallery { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px; }
+	.album--ao-dai .photo-card { flex: 0 0 72%; }
+	.album--ao-dai .photo-card img { height: auto; width: 100%; }
+	.album--proposal .gallery { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 8px; }
+	.album--proposal .photo-card { flex: 0 0 72%; }
+	.album--proposal .photo-card img { height: auto; width: 100%; }
+	.album--yearbook-women .gallery, .album--yearbook-men .gallery { gap: 14px; }
+	.album--yearbook-women .photo-card, .album--yearbook-men .photo-card { flex-basis: 72%; }
+	.album--yearbook-women .photo-card img, .album--yearbook-men .photo-card img { height: auto; width: 100%; }
+	.beauty-gallery { gap: 6px; }
+	.beauty-gallery .photo-card { flex-basis: 72%; }
+	.wedding-layout { display: flex; flex-direction: column; gap: 28px; }
+	.wedding-vertical, .wedding-horizontal { display: grid; gap: 14px; width: 100%; }
+	.wedding-horizontal { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+	.about-section { padding: 18vw 6vw; }
+	.about-grid { display: block; }
+	.about-copy { margin-top: 50px; }
+	.footer-email { font-size: clamp(2rem, 8.5vw, 3.2rem); margin-bottom: 24vw; }
+	.footer-bottom { align-items: start; flex-wrap: wrap; gap: 18px; }
+	.footer-bottom > span:last-child { width: 100%; }
+	.lightbox { padding: 12vw 7vw; }
+	.lightbox-figure { max-width: 82vw; }
+	.lightbox-arrow { padding: 10px; }
+	.lightbox-prev { left: 2px; }
+	.lightbox-next { right: 2px; }
+}
